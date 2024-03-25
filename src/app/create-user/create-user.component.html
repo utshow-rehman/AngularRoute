@@ -1,0 +1,32 @@
+<h2 class="create">Create User</h2>
+
+<input nz-input placeholder="Enter Username" [(ngModel)]="username" />
+
+<nz-input-group class="pass" [nzSuffix]="suffixTemplate">
+    <input
+      [type]="passwordVisible ? 'text' : 'password'"
+      nz-input
+      placeholder="input password"
+      [(ngModel)]="password"
+    />
+  </nz-input-group>
+  <ng-template #suffixTemplate>
+    <span
+      nz-icon
+      [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+      (click)="passwordVisible = !passwordVisible"
+    ></span>
+  </ng-template>
+
+
+ 
+  <nz-modal
+    [(nzVisible)]="isVisible"
+    nzTitle="User Added"
+    (nzOnCancel)="handleCancel()"
+    (nzOnOk)="handleOk()"
+    [nzOkLoading]="isOkLoading"
+  >
+    <p *nzModalContent><nz-alert nzType="success" nzMessage="Successfully added" nzShowIcon></nz-alert></p>
+  </nz-modal>
+  <button nz-button nzType="primary" (click)="save()" nzBlock>Save</button>
