@@ -15,4 +15,14 @@ export class CheckLoginService {
     return this.dataSubject.asObservable();
   }
 
+  checkLogin():boolean{
+    let login = localStorage.getItem("login");
+    if(login === "true"){
+        return true;
+    }
+    else{
+        return false;   
+    }
+  }
+
 }

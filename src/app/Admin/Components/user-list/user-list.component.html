@@ -1,0 +1,21 @@
+<nz-table #middleTable [nzData]="allUser" [nzPageSize]="5">
+  <thead>
+    <tr>
+      <th>SL</th>
+      <th>Name</th>
+      <th>Password</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of middleTable.data ; let i = index">
+      <td>{{ "#"+(i + 1) }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.password }}</td>
+      <td>
+        <span nz-icon nzType="edit" nzTheme="outline"></span>
+        <span nz-icon nzType="delete" nzTheme="outline"></span>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

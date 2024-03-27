@@ -17,17 +17,20 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
-import { HomepageComponent } from './homepage/homepage.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { CreateUserComponent } from './create-user/create-user.component';
+import { HomepageComponent } from './Home/homepage/homepage.component';
+import { AdminLoginComponent } from './Admin/Components/admin-login/admin-login.component';
+import { AdminDashboardComponent } from './Admin/Components/admin-dashboard/admin-dashboard.component';
+import { CreateUserComponent } from './Admin/Components/create-user/create-user.component';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { NotFoundComponent } from './NotFound/not-found/not-found.component';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
-import { UserListComponent } from './user-list/user-list.component';
+import { UserListComponent } from './Admin/Components/user-list/user-list.component';
 import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+
 
 registerLocaleData(en);
 
@@ -59,7 +62,9 @@ registerLocaleData(en);
     NzAlertModule,
     NzAvatarModule,
     NzEmptyModule,
-    NzCardModule
+    NzCardModule,
+    NzTableModule,
+    NzPaginationModule
 
   ],
   providers: [

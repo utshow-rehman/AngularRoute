@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CheckLoginService } from './check-login.service';
-import { Router } from '@angular/router';
+import { CheckLoginService } from './Admin/Services/check-login.service';
+import { NavigationEnd, Router } from '@angular/router';
 import { getLocaleMonthNames } from '@angular/common';
 
 @Component({
@@ -14,10 +14,20 @@ export class AppComponent {
   showDropdown: boolean = false;
   constructor(private LoginService:CheckLoginService,private route:Router){}
   ngOnInit(): void {
-      this.checkLogin();
+      this.isLogin = this.LoginService.checkLogin();
        this.LoginService.getData().subscribe(data => {
-        this.checkLogin();
-      });   
+        this.isLogin = this.LoginService.checkLogin();
+      });  
+      
+      this.route.events.subscribe((event) => {
+        if (event instanceof NavigationEnd) {
+          
+          if(event.url === '/home' || event.url === '/'){
+            this.isLogin = false;
+          }
+
+        }
+      });
   } 
   toggleDropdown(): void {
     this.showDropdown = !this.showDropdown;
@@ -28,15 +38,5 @@ logout(){
   this.LoginService.sendData(1);
   
 }
-checkLogin(){
-  let login = localStorage.getItem("login");
-  console.log(login," -->")
-  if(login === "true"){
-       this.isLogin = true;
-  }
-  else{
-      this.isLogin = false;
-      
-  }
-}
+
 }
