@@ -32,6 +32,8 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { AdminLayoutComponent } from './Admin/Components/admin-layout/admin-layout.component';
 import { HomeLayoutComponent } from './Home/Components/home-layout/home-layout.component';
+import { AdminModule } from './Admin/admin.module';
+import { AdminRoutingModule } from './Admin/admin-routing.module';
 
 
 registerLocaleData(en);
@@ -41,16 +43,13 @@ registerLocaleData(en);
     AppComponent,
     HomepageComponent,
     AdminLoginComponent,
-    AdminDashboardComponent,
-    CreateUserComponent,
     NotFoundComponent,
-    UserListComponent,
-    AdminLayoutComponent,
     HomeLayoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AdminModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,

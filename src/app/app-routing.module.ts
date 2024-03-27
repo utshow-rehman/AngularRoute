@@ -16,19 +16,8 @@ const routes: Routes = [
     { path: 'home', component: HomepageComponent },
   ]
  },
-  {
-    path: '',
-    component: AdminLayoutComponent,
-    children: [
-      { path: 'dashboard', component: AdminDashboardComponent },
-      { path: 'create', component: CreateUserComponent },
-      { path: 'user-list', component: UserListComponent  },
-    ],
-     canActivate:[AuthGuard]
-  },
- 
   { path: 'admin-login', component: AdminLoginComponent, canActivate:[AuthGuard] },
-  { path: '**', component: NotFoundComponent }
+  // { path: '**', component: NotFoundComponent }
 
 ];
 
