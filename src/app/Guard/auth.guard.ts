@@ -7,7 +7,7 @@ import { CheckLoginService } from '../Admin/Services/check-login.service';
 export const AuthGuard:CanActivateFn = (route,state) =>{
     const router = inject(Router);
     const LoginService = inject(CheckLoginService);
-  const currentPath = route.url[0].path;
+  const currentPath = route.routeConfig?.path;
   if(currentPath === 'admin-login'){
        if(LoginService.checkLogin()){
            router.navigate(['/dashboard']);

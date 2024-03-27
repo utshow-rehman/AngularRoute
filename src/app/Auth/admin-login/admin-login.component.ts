@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '../../Model/User';
-import { CheckLoginService } from '../../Services/check-login.service';
+import { User } from '../../Admin/Model/User';
+import { CheckLoginService } from '../../Admin/Services/check-login.service';
 
 @Component({
   selector: 'app-admin-login',
