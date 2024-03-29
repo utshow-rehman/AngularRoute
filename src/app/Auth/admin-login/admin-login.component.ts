@@ -14,7 +14,7 @@ export class AdminLoginComponent {
   userName:string = "";
   password:string = "";
   found:boolean = false;
-  constructor(private fb: UntypedFormBuilder, private route:Router, private LoginService:CheckLoginService) {}
+  constructor(private fb: UntypedFormBuilder, private route:Router, private loginService:CheckLoginService) {}
   submitForm(): void {
     if (this.validateForm.valid) {
       // console.log('submit', this.validateForm.value.userName);
@@ -24,6 +24,7 @@ export class AdminLoginComponent {
       let credentialsString = localStorage.getItem("user");
       if(credentialsString === null){
         let obj = [{
+          id:1,
           name:"admin",
           password:"1234"
     }]
@@ -36,7 +37,7 @@ export class AdminLoginComponent {
             if (credential.name === this.userName && credential.password === this.password) {
                localStorage.setItem("sidename",credential.name)
                localStorage.setItem("login","true");
-               this.LoginService.sendData(1);
+               this.loginService.sendData(1);
               this.route.navigate(['/dashboard']);
                this.found = true;
               }
@@ -64,6 +65,9 @@ export class AdminLoginComponent {
   // constructor(private fb: UntypedFormBuilder) {}
 
   ngOnInit(): void {
+    if(this.loginService.checkLogin()){
+        this.route.navigate(['dashboard']);
+    }
     this.validateForm = this.fb.group({
       userName: [null, [Validators.required]],
       password: [null, [Validators.required]],

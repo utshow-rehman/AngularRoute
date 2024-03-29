@@ -31,3 +31,38 @@
     <p *nzModalContent><nz-alert nzType="success" nzMessage="Successfully added" nzShowIcon></nz-alert></p>
   </nz-modal>
   <button nz-button nzType="primary" (click)="save()" nzBlock>Save</button>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="firstName">First Name:</label>
+      <input id="firstName" type="text" formControlName="firstName">
+      <div *ngIf="userForm.get('firstName')?.touched && userForm.get('firstName')?.hasError('required')">
+        First name is required.
+      </div>
+    </div>
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input id="lastName" type="text" formControlName="lastName">
+      <div *ngIf="userForm.get('lastName')?.touched && userForm.get('lastName')?.hasError('required')">
+        Last name is required.
+      </div>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email">
+    </div>
+    <div>
+      <label for="phoneNumber">Phone Number:</label>
+      <input id="phoneNumber" type="text" formControlName="phoneNumber" (keydown)="numericOnly($event)">
+        <!-- Validation message -->
+  <div *ngIf="userForm.get('phoneNumber')?.hasError('pattern') && userForm.get('phoneNumber')?.touched">
+    Phone number must be exactly 10 digits with no letters or special characters.
+  </div>
+    </div>
+    <div>
+      <label for="address">Address:</label>
+      <input id="address" type="text" formControlName="address">
+    </div>
+    <button type="submit" >Submit</button>
+  </form>
+  

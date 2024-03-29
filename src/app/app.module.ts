@@ -33,7 +33,6 @@ import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { AdminLayoutComponent } from './Admin/Components/admin-layout/admin-layout.component';
 import { HomeLayoutComponent } from './Home/Components/home-layout/home-layout.component';
 import { AdminModule } from './Admin/admin.module';
-import { AdminRoutingModule } from './Admin/admin-routing.module';
 
 
 registerLocaleData(en);
@@ -48,11 +47,11 @@ registerLocaleData(en);
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     AdminModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,

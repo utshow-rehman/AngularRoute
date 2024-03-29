@@ -18,13 +18,10 @@ import { NzEmptyModule } from 'ng-zorro-antd/empty';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from '../app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from '../icons-provider.module';
 import { AdminRoutingModule } from './admin-routing.module';
 import { RouterModule } from '@angular/router';
+import { UserDetailComponent } from './Components/user-detail/user-detail.component';
 
 
 
@@ -33,17 +30,14 @@ import { RouterModule } from '@angular/router';
     AdminDashboardComponent,
     CreateUserComponent,
     UserListComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    UserDetailComponent
   ],
   imports: [
     RouterModule,
-    BrowserModule,
-    AppRoutingModule,
     CommonModule,
     FormsModule,
     AdminRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
@@ -59,9 +53,6 @@ import { RouterModule } from '@angular/router';
     NzCardModule,
     NzTableModule,
     NzPaginationModule
-  ],
-  exports:[
-
   ]
 })
 export class AdminModule { }
