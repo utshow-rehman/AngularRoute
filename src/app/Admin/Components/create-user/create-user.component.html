@@ -1,6 +1,6 @@
 <h2 class="create">Create User</h2>
 
-<input nz-input placeholder="Enter Username" [(ngModel)]="username" />
+<!-- <input nz-input placeholder="Enter Username" [(ngModel)]="username" />
 
 <nz-input-group class="pass" [nzSuffix]="suffixTemplate">
     <input
@@ -30,9 +30,10 @@
   >
     <p *nzModalContent><nz-alert nzType="success" nzMessage="Successfully added" nzShowIcon></nz-alert></p>
   </nz-modal>
-  <button nz-button nzType="primary" (click)="save()" nzBlock>Save</button>
+  <button nz-button nzType="primary" (click)="save()" nzBlock>Save</button> -->
 
-  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <!-- <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    
     <div>
       <label for="firstName">First Name:</label>
       <input id="firstName" type="text" formControlName="firstName">
@@ -54,9 +55,9 @@
     <div>
       <label for="phoneNumber">Phone Number:</label>
       <input id="phoneNumber" type="text" formControlName="phoneNumber" (keydown)="numericOnly($event)">
-        <!-- Validation message -->
+       
   <div *ngIf="userForm.get('phoneNumber')?.hasError('pattern') && userForm.get('phoneNumber')?.touched">
-    Phone number must be exactly 10 digits with no letters or special characters.
+    Phone number must be exactly 11 digits with no letters or special characters.
   </div>
     </div>
     <div>
@@ -65,4 +66,116 @@
     </div>
     <button type="submit" >Submit</button>
   </form>
+   -->
+
+  <!-- ------------------------
+   -->
+
+   <form nz-form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="firstName">FirstName</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzHasFeedback nzErrorTip="The input Min length 3 and Max Length 50!">
+        <input nz-input formControlName="firstName" id="firstName" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="lastName">LastName</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzHasFeedback nzErrorTip="The input Min length 3 and Max Length 50!">
+        <input nz-input formControlName="lastName" id="lastName" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24"    [nzErrorTip]="errorTpl1">
+        <input nz-input formControlName="email" id="email" />
+      </nz-form-control>
+      <ng-template #errorTpl1 let-control>
+        <ng-container *ngIf="control.hasError('userEmailIsExist')">
+            your provided email already exist!
+        </ng-container>
+        <ng-container *ngIf="control.hasError('email')">
+          please provide valid email!
+      </ng-container>
+      </ng-template>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Password Must be at least 4 character">
+        <input
+          nz-input
+          type="password"
+          id="password"
+          formControlName="password"
+         
+        />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired>Confirm Password</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
+        <input nz-input type="password" formControlName="checkPassword" id="checkPassword" />
+        <ng-template #errorTpl let-control>
+          <ng-container *ngIf="control.hasError('required')">Please confirm your password!</ng-container>
+          <ng-container *ngIf="control.hasError('confirm')">
+            Two passwords that you enter is inconsistent!
+          </ng-container>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired>Phone Number</nz-form-label>
+      <nz-form-control
+        [nzSm]="14"
+        [nzXs]="24"
+        [nzValidateStatus]="userForm.controls['phoneNumber']"
+        nzErrorTip="Phone Number Must be 11 digits!"
+      >
+        <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
+          <ng-template #addOnBeforeTemplate>
+            <nz-select formControlName="phoneNumberPrefix" class="phone-select">
+              <nz-option nzLabel="+88" nzValue="+88"></nz-option>
+      
+            </nz-select>
+          </ng-template>
+          <input formControlName="phoneNumber" id="'phoneNumber'" nz-input />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+   
+   
+  <app-address-group label="Address" controlKey="address"></app-address-group>
+    
+  <!-- ------------------------------------------------------- -->
+  <div class="clearfix">
+    <nz-upload
+      nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      nzListType="picture-card"
+      [(nzFileList)]="fileList"
+      [nzShowButton]="fileList.length < 1"
+      [nzPreview]="handlePreview"
+      (nzChange)="handleUpload($event)"
+    >
+      <div>
+        <span nz-icon nzType="plus"></span>
+        <div style="margin-top: 8px">Upload</div>
+      </div>
+    </nz-upload>
+    <nz-modal
+      [nzVisible]="previewVisible"
+      [nzContent]="modalContent"
+      [nzFooter]="null"
+      (nzOnCancel)="previewVisible = false"
+     
+    >
+      <ng-template #modalContent>
+        <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
+      </ng-template>
+    </nz-modal>
+  </div>
   
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary">Submit</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>

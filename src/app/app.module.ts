@@ -19,18 +19,14 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { HomepageComponent } from './Home/Components/homepage/homepage.component';
 import { AdminLoginComponent } from './Auth/admin-login/admin-login.component';
-import { AdminDashboardComponent } from './Admin/Components/admin-dashboard/admin-dashboard.component';
-import { CreateUserComponent } from './Admin/Components/create-user/create-user.component';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NotFoundComponent } from './NotFound/not-found/not-found.component';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
-import { UserListComponent } from './Admin/Components/user-list/user-list.component';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
-import { AdminLayoutComponent } from './Admin/Components/admin-layout/admin-layout.component';
 import { HomeLayoutComponent } from './Home/Components/home-layout/home-layout.component';
 import { AdminModule } from './Admin/admin.module';
 

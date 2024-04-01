@@ -19,3 +19,15 @@
      font-size: 0.8em;
    }
    
+   /* ---------- */
+   [nz-form] {
+    max-width: 600px;
+  }
+
+  .phone-select {
+    width: 70px;
+  }
+
+  .register-are {
+    margin-bottom: 8px;
+  }

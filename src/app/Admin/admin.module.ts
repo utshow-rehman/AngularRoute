@@ -22,9 +22,9 @@ import { IconsProviderModule } from '../icons-provider.module';
 import { AdminRoutingModule } from './admin-routing.module';
 import { RouterModule } from '@angular/router';
 import { UserDetailComponent } from './Components/user-detail/user-detail.component';
-
-
-
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import {AddressGroupComponent} from '../SharedComponent/address-group.component'
+import { NzUploadModule } from 'ng-zorro-antd/upload';
 @NgModule({
   declarations: [
     AdminDashboardComponent,
@@ -52,7 +52,11 @@ import { UserDetailComponent } from './Components/user-detail/user-detail.compon
     NzEmptyModule,
     NzCardModule,
     NzTableModule,
-    NzPaginationModule
+    NzPaginationModule,
+    NzSelectModule,
+    AddressGroupComponent,
+    NzUploadModule
+
   ]
 })
 export class AdminModule { }
