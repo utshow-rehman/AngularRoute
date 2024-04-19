@@ -25,6 +25,7 @@ import { UserDetailComponent } from './Components/user-detail/user-detail.compon
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import {AddressGroupComponent} from '../SharedComponent/address-group.component'
 import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { CustomPhoneComponent } from '../SharedComponent/CustomPhoneNumber/custom-phone/custom-phone.component';
 @NgModule({
   declarations: [
     AdminDashboardComponent,
@@ -55,8 +56,8 @@ import { NzUploadModule } from 'ng-zorro-antd/upload';
     NzPaginationModule,
     NzSelectModule,
     AddressGroupComponent,
-    NzUploadModule
-
+    NzUploadModule,
+    CustomPhoneComponent
   ]
 })
 export class AdminModule { }

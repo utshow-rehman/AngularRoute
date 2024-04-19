@@ -1,1 +1,15 @@
-<h1>Welcome To Admin Dashboard</h1>
+<form [formGroup]="userForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="userName">UserName</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzHasFeedback nzErrorTip="The input Min length 3 and Max Length 50!">
+          <input nz-input formControlName="userName" id="userName" />
+        </nz-form-control>
+      </nz-form-item>
+     
+      <app-custom-phone formControlName="phone" [label] = "'phone'" ></app-custom-phone>
+      <!-- <p *ngIf="userForm.controls['phone'].errors?.['invalidFormat']">
+        The input must contain only digits.
+      </p> -->
+      <button type="submit">Submit</button>
+  </form>
+  

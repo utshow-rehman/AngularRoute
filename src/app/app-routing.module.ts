@@ -10,6 +10,11 @@ const routes: Routes = [
   {path:'home', component:HomepageComponent},
   { path: 'admin-login', component: AdminLoginComponent},
   {path: 'admin', loadChildren:()=>import('./Admin/admin.module').then(m=> m.AdminModule)},
+  {
+    path: 'app',
+    // canActivate: [AuthenticatedUserGuard],
+    loadChildren: () => import('./modules/main-layout/main-layout.module').then(m => m.MainLayoutModule),
+  },
   { path: '**', component: NotFoundComponent }
 
 ];

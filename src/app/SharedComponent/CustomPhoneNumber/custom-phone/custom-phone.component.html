@@ -1,0 +1,12 @@
+<nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="phone">{{label}}</nz-form-label>
+    <nz-form-control  [nzSm]="14" [nzXs]="24" >
+        <nz-input-group nzAddOnBefore="+88">
+        <input nz-input #phoneInput type="text" [value]="phoneNumber" id="phone"  (blur)="onBlur($event)"  /> 
+    </nz-input-group>
+    <p>{{this.phoneNumber}}</p>
+    <p class="error">{{phoneError}}</p>
+    </nz-form-control>
+     
+  </nz-form-item>
+  
